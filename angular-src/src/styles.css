@@ -1,0 +1,20 @@
+/* add global css*/
+.required-mark:after{
+    content:" *";
+    color:#ff0000;
+}
+.text-center{
+    text-align: center;
+}
+
+form {
+    margin-left: 50%;
+    transform: translate(-50%,0);
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid green; /* green */
+  }
+  .ng-invalid:not(form)  {
+    border-left: 5px solid red; /* red */
+  }
+

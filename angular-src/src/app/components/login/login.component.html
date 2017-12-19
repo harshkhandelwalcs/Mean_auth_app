@@ -1,0 +1,35 @@
+<h2 class="page-header text-center">Login</h2>
+<form (submit)="onLoginSubmit()" #loginForm="ngForm">
+    <div class="form-group">
+        <label class="required-mark">Username</label>
+        <input type="text" [(ngModel)]="username" name="username" minlength="5" maxlength="15" required class="form-control" #usernameRef="ngModel">
+        <div *ngIf="usernameRef.errors && (usernameRef.dirty || usernameRef.touched)" class="alert alert-danger">
+            <div [hidden]="!usernameRef.errors.required">
+                Username is required!
+            </div>
+            <div [hidden]="!usernameRef.errors.minlength">
+                Please use a valid username.
+            </div>
+            <div [hidden]="!usernameRef.errors.maxlength">
+                Please use a valid username.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="required-mark">Password</label>
+        <input type="password" [(ngModel)]="password" name="password" minlength="8" maxlength="16" required class="form-control"
+            #passwordRef="ngModel">
+        <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" class="alert alert-danger">
+            <div [hidden]="!passwordRef.errors.required">
+                Paasword is required!
+            </div>
+            <div [hidden]="!passwordRef.errors.minlength">
+                Please use a valid password.
+            </div>
+            <div [hidden]="!passwordRef.errors.maxlength">
+                Please use a valid password.
+            </div>
+        </div>
+    </div>
+    <input [disabled]="finished" [disabled]="!loginForm.form.valid" type="submit" class="btn btn-primary" value="submit">
+</form>
